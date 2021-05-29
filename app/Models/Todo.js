@@ -1,9 +1,9 @@
-export default class Todo {
+export class Todo {
     constructor(data) {
         this.description = data.description
+        this.id = data.id
         this.completed = data.completed || false
         this.user = data.user || 'daniel'
-        this.id = data.id || 
     }
 
     get Template() {
@@ -13,3 +13,5 @@ export default class Todo {
         `
     }
 }
+
+

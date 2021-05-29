@@ -21,16 +21,18 @@ export class TodosController {
   addTodo(event) {
     event.preventDefault()
     let form = event.target
-    todosService.addTodo(form.description.value)
+    let todoData = {
+      description: form.description.value
+    }
+    todosService.addTodo(todoData)
     form.reset()
   }
 
   deleteTodo(id) {
-    console.log(id)
+    todosService.deleteTodo(id)
   }
 
   check(id) {
-
     todosService.check(id)
   }
 
