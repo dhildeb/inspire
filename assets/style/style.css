@@ -1,7 +1,24 @@
 *{
   user-select: none;
 }
+.author{
+  opacity: 0%;
+}
+.quote:hover ~ .author{
+  opacity: 100%;
+  transition: opacity 1s;
+}
 
-.click{
+.click{ 
   cursor: pointer;
+}
+.clock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: #f1d900;
+  font-size: 60px;
+  font-family: Orbitron;
+  letter-spacing: 7px;
 }
