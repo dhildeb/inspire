@@ -14,7 +14,7 @@ class AppState extends EventEmitter {
   /**@type {Image} */
   img = null
 
-
+  standardTime = true
 }
 
 export const ProxyState = new Proxy(new AppState(), {

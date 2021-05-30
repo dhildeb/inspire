@@ -1,25 +1,29 @@
+import { ProxyState } from "../AppState.js"
+
 export function showTime() {
-  var date = new Date();
-  var h = date.getHours(); // 0 - 23
-  var m = date.getMinutes(); // 0 - 59
-  var session = "AM";
+  let date = new Date()
+  let h = date.getHours() // 0 - 23
+  let m = date.getMinutes() // 0 - 59
+  let session = "AM"
+  let time = 0
 
-  if (h == 0) {
-    h = 12;
+  m = (m < 10) ? "0" + m : m
+
+  if (ProxyState.standardTime) {
+    if (h == 0) {
+      h = 12
+    }
+
+    if (h > 12) {
+      h = h - 12
+      session = "PM"
+    }
+    time = h + ":" + m + " " + session
+  } else {
+    time = h + "" + m
   }
+  document.getElementById("MyClockDisplay").innerText = time
+  document.getElementById("MyClockDisplay").textContent = time
 
-  if (h > 12) {
-    h = h - 12;
-    session = "PM";
-  }
-
-  // h = (h < 10) ? "0" + h : h;
-  m = (m < 10) ? "0" + m : m;
-
-  var time = h + ":" + m + " " + session;
-  document.getElementById("MyClockDisplay").innerText = time;
-  document.getElementById("MyClockDisplay").textContent = time;
-
-  setTimeout(showTime, 1000);
-
+  setTimeout(showTime, 1000)
 }

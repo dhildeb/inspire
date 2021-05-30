@@ -9,6 +9,7 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style/main.css">
     <link rel="stylesheet" href="assets/style/style.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>inspire</title>
 </head>
 
@@ -19,13 +20,15 @@
 
             <div class="row">
                 <div class="col-4" style="height: 224px;">
-                    <span id="mute">mute</span>
+                    <span onclick="app.mute()"><i id="mute-icon" class="text-light fa fa-volume-up fa-lg"
+                            aria-hidden="true"></i></span>
                     <audio id="audio" src="/assets/Relaxing Anti-Stress Music - slow and positive - rd N026.mp3"
                         autoplay loop></audio>
                 </div>
                 <div class="col-4 p-1">
-                    <h1 id="MyClockDisplay" class="clock text-center sections" onload="showTime()"></h1>
-                    <h4 id="greeting" class="text-center sections mt-4">Good Morning!</h4>
+                    <h1 id="MyClockDisplay" class="clock text-center sections click" onload="showTime()"
+                        onclick="app.clocksController.toggleTime()">
+                    </h1>
                 </div>
                 <div class="col-4">
                     <div id="weather" class="row justify-content-end p-3"></div>
@@ -36,12 +39,19 @@
             <div id="quote" class="row text-center justify-content-center p-1"></div>
 
             <div class="row p-2">
-                <div class="col-lg-9 col-6"></div>
-                <div class="col-lg-3 col-6 position-relative rounded sections">
+                <div class="col-lg-10 col-7"></div>
+                <button id="show-tasks" class="btn btn-transparent text-success position-absolute rounded sections m-3"
+                    onclick="app.toggleTasks()"><b>Show Tasks</b></button>
+                <div id="todo-div" class="col-lg-2 col-5 position-relative rounded sections d-none">
                     <div id="todos" class=""></div>
                     <form onsubmit="app.todosController.addTodo(event)">
-                        <input type="text" name="description" id="description">
-                        <button class="btn btn-primary" type="submit">Add task</button>
+                        <input class="mb-1" type="text" name="description" id="description">
+                        <div class="d-flex">
+                            <button class="btn btn-primary text-nowrap" type="submit">Add Task</button>
+                            <button class="btn btn-transparent text-success text-nowrap" onclick="app.toggleTasks()"><b>
+                                    Hide
+                                    Tasks</b></button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -49,6 +59,7 @@
         </div>
     </main>
     <footer></footer>
+    <script>document.getElementById("audio").volume = .35</script>
 
     <script src="app/main.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
