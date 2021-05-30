@@ -7,6 +7,10 @@ class WeathersService {
     let res = await sandBoxApi.get('weather')
     ProxyState.weather = new Weather(res.data)
   }
+  toggleTemp() {
+    ProxyState.weather.tempChange = !ProxyState.weather.tempChange
+    ProxyState.weather = ProxyState.weather
+  }
 }
 
 export const weathersService = new WeathersService()

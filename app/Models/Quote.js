@@ -6,9 +6,9 @@ export class Quote {
 
   get Template() {
     return `
-    <div>
-    <p class="quote">${this.content}</p>
-    <span class="author">${this.author}</span>
+    <div class="col-lg-6 rounded sections">
+    <h5 class="quote">${this.content}</h5>
+    <em class="author">${this.author}</em>
     </div>
     `
   }

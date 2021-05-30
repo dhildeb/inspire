@@ -9,7 +9,6 @@ class TodosService {
   async getTodos() {
     let res = await sandBoxApi.get(name + '/todos')
     ProxyState.todos = res.data.map(td => new Todo(td))
-    console.log(ProxyState.todos)
   }
   async addTodo(todoData) {
     let res = await sandBoxApi.post(name + '/todos/', todoData)
@@ -19,8 +18,8 @@ class TodosService {
   async check(id) {
     let check = ProxyState.todos.find(t => t.id == id)
     check.completed = !check.completed
-    console.log(check)
     await sandBoxApi.put(name + '/todos/' + id, check)
+    ProxyState.todos = ProxyState.todos
   }
 
   async deleteTodo(id) {

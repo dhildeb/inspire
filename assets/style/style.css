@@ -1,5 +1,14 @@
 *{
   user-select: none;
+  /* outline: 1px solid red; */
+}
+#image{
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sections{
+  background-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.25);
 }
 .author{
   opacity: 0%;
@@ -8,17 +17,24 @@
   opacity: 100%;
   transition: opacity 1s;
 }
-
+#todos{
+  height: 250px;
+  overflow-y: auto;
+}
 .click{ 
   cursor: pointer;
 }
+/* #weather:hover{
+  zoom: 1.5;
+} */
+.weather-details{
+  display: none;
+}
+#weather:hover .weather-details{
+display: block;
+}
+
 .clock {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  color: #f1d900;
-  font-size: 60px;
-  font-family: Orbitron;
-  letter-spacing: 7px;
+  color: rgb(255, 230, 0);
+  font-family: Lucida Console;
 }
