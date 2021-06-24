@@ -1,47 +1,51 @@
-*{
-  user-select: none;
-  /* outline: 1px solid red; */
-}
-#image{
+.image{
+  background-image: url('https://picsum.photos/1200/600');
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .sections{
   background-color: rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.25);
 }
+
 .author{
   opacity: 0%;
 }
+
 .quote:hover ~ .author{
   opacity: 100%;
   transition: opacity 1s;
 }
+
 #todos{
   height: 240px;
   overflow-y: auto;
 }
+
 .click{ 
   cursor: pointer;
 }
-/* #weather:hover{
-  zoom: 1.5;
-} */
+
 .weather-details{
   display: none;
 }
-#weather:hover .weather-details{
-display: block;
+
+.temp:hover .weather-details{
+  display: block;
 }
 
 .clock {
   color: rgb(255, 230, 0);
   font-family: Lucida Console;
 }
+
 input{
   background-color: rgba(255, 255, 255, 0.5);
 }
+
 #show-tasks{
   right: 0;
   bottom: 0;
+  transition: all 2s linear;
 }
